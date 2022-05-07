@@ -1,7 +1,6 @@
 name: datetime_countdown
 description: datetime count down timer
 version: 0.0.1
-author: aharoldk
 homepage: https://github.com/aharoldk/datetime_countdown
 
 environment:
