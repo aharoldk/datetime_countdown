@@ -13,7 +13,8 @@ class DateTimeCountDown extends StatefulWidget {
       {Key? key,
       required this.expireAt,
       this.expiredText = 'Time Expire',
-      this.textStyle = const TextStyle(color: Color(0xFFeb0339), fontWeight: FontWeight.w700)})
+      this.textStyle = const TextStyle(
+          color: Color(0xFFeb0339), fontWeight: FontWeight.w700)})
       : super(key: key);
 
   @override
@@ -25,7 +26,8 @@ class _DateTimeCountDownState extends State<DateTimeCountDown> {
 
   @override
   void initState() {
-    timer = Timer.periodic(const Duration(seconds: 1), (timer) =>  setState(() {}));
+    timer =
+        Timer.periodic(const Duration(seconds: 1), (timer) => setState(() {}));
     super.initState();
   }
 
@@ -46,20 +48,22 @@ class _DateTimeCountDownState extends State<DateTimeCountDown> {
         _timeUntilDue.inMinutes - (_daysUntil * 24 * 60) - (_hoursUntil * 60);
     int _secUntil = _timeUntilDue.inSeconds - (_minUntil * 60);
 
-    String s = _secUntil.toString().length <= 2
-        ? _secUntil.toString()
+    String _second = _secUntil.toString().length <= 2
+        ? _secUntil.toString().padLeft(2, '0')
         : _secUntil.toString().substring(_secUntil.toString().length - 2);
+    String _minutes = _minUntil.toString().padLeft(2, '0');
+    String _hours = _hoursUntil.toString().padLeft(2, '0');
 
     if (_secUntil > 0) {
-      retVal = s;
+      retVal = _second;
     }
 
     if (_minUntil > 0) {
-      retVal = '$_minUntil : $s';
+      retVal = '$_minutes : $_second';
     }
 
     if (_hoursUntil > 0) {
-      retVal = '$_hoursUntil : $_minUntil : $s';
+      retVal = '$_hours : $_minutes : $_second';
     }
 
     return _hoursUntil < 1 && _minUntil < 1 && _secUntil < 1

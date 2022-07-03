@@ -1,16 +1,14 @@
-## Features
-Provide package to help user to countdown date time
+# Introduction
+Provide package to help user to countdown time using date time.
 
 ## Usage
 ```dart
-Center(
-  child: DateTimeCountDown(
+DateTimeCountDown(
     expireAt: "2022-05-07 16:00:30", 
     expiredText: 'Time out', 
     textStyle: TextStyle(
-      color: Color(0xFF333333), 
-      fontWeight: FontWeight.w700
-      )
-  ),
+        color: Colors.red, 
+        fontWeight: FontWeight.w700`
+    )
 )
 ```
